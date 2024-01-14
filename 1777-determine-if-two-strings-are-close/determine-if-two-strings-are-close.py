@@ -13,5 +13,4 @@ class Solution:
                 o1.sort()
                 o2.sort()
                 return o1 == o2
-            else:
-                return False
+            return False
