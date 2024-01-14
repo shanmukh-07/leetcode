@@ -1,21 +1,17 @@
 class Solution:
-    def closeStrings(self, w1: str, w2: str) -> bool:
-        def fun(n):
-            d = {}
-            for i in n:
-                if i not in d:
-                    d[i] = 1
-                else:
-                    d[i] += 1
-            return d
-        if len(w1) != len(w2):
-            return 0
-        d1 = fun(w1)
-        d2 = fun(w2)
-        l1 = list(d1.values())
-        l2 = list(d2.values())
-        l1.sort()
-        l2.sort()
-        if l1 == l2 and d1.keys() == d2.keys():
-            return 1
-        return 0
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        if len(word1) != len(word2):
+            return False
+        else:
+            s1, s2 = set(word1), set(word2)
+            if s1 == s2:
+                o1, o2 = [], []
+                for e in s1:
+                    o1.append(word1.count(e))
+                for e in s2:
+                    o2.append(word2.count(e))
+                o1.sort()
+                o2.sort()
+                return o1 == o2
+            else:
+                return False
