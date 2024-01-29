@@ -10,7 +10,7 @@ class Solution:
                 l.append(c+1)
                 c = 0
         l.append(c+1)
-        s = 0
+        sm = 0
         for i in l:
-            s += (i*(i+1))//2
-        return s%m
+            sm += (i*(i+1))//2
+        return sm%m
