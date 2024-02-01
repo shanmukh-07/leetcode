@@ -3,12 +3,12 @@ class Solution:
         n = len(nums)
         nums.sort()
         l = []
-        c = 0
+        c = True
         for i in range(0,n,3):
             a = nums[i:i+3]
             l.append(a)
-            if abs(a[2]-a[0]) <= k :
-                c += 1
-        if len(l) == c:
+            if abs(a[2]-a[0]) > k:
+                c = False
+        if c:
             return l
         return []
