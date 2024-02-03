@@ -6,5 +6,4 @@ class Solution:
                 return False
             else: 
                 m += a[i]
-                print(m)
         return True
