@@ -5,16 +5,14 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        l = []
-        while head:
-            l.append(head.val)
-            head = head.next
-        l.sort()
-        if not l:return None
-        head = ListNode(l[0])
         t = head
-        for i in l[1:]:
-            nn = ListNode(i)
-            t.next = nn
-            t = nn
+        l =[]
+        while t:
+            l.append(t.val)
+            t = t.next
+        l.sort()
+        c = head
+        for i in l:
+            c.val = i
+            c = c.next
         return head
