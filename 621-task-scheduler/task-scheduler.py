@@ -1,12 +1,4 @@
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
-        if len(tasks) == 1:
-            return 1
-        d = Counter(tasks)
-        l = list(d.values())
-        t = max(l)
-        tm = (t-1)*(n+1) + 1
-        for i in range(len(l)):
-            if l[i] == t:
-                tm += 1
-        return max(tm-1,len(tasks))
+        l = Counter(tasks)
+        return max((n+1)*(max(l.values())-1) + len([x for x in l.values() if x == max(l.values())]) , len(tasks))
