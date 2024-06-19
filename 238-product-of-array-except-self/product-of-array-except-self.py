@@ -1,24 +1,18 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        z = 0
-        p = 1
-        k = -1
-        for i in range(n):
-            if nums[i] == 0:
-                z += 1
-                k = i
-            else:
-                p *= nums[i]
-        if z>1:
-            l = [0 for i in range(n)]
-            return l
-        elif z == 1:
-            l = [0 for i in range(n)]
-            l[k] = p
-            return l
+        length = len(nums)
+        zeroes_count = nums.count(0)
+        product = 1
+        for i in nums:
+            if i != 0:
+                product *= i
+        final_list = [0 for _ in range(length)]
+        if zeroes_count == 1:
+            index = nums.index(0)
+            final_list[index] = product
+        elif zeroes_count > 1:
+            pass
         else:
-            l = []
-            for i in range(n):
-                l.append(p//nums[i])
-            return l
+            for i in range(length):
+                final_list[i] = product//nums[i]
+        return final_list
