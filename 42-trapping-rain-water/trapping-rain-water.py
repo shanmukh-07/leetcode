@@ -13,4 +13,5 @@ class Solution:
         fs = 0
         for i in range(l):
             fs += min(p[i]-h[i],s[i]-h[i])
+        print(p,s,h)
         return fs
